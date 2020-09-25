@@ -6,7 +6,7 @@ import (
 	"runtime"
 )
 
-func pKrug(r float64) float64 {
+func circleArea(r float64) float64 {
 	return math.Pow(r, 2) * math.Pi
 }
 
@@ -52,17 +52,17 @@ func os() {
 }
 
 func testDefer() {
-	fmt.Println("početak")
+	fmt.Println("Begin")
 	for i := 0; i < 10; i++ {
 		defer fmt.Println(i)
 	}
-	fmt.Println("kraj")
+	fmt.Println("End")
 }
 
 func main() {
 	fmt.Println("My favorite number is ", math.Pi)
 	var r float64 = 10
-	fmt.Println("Circle area is ", pKrug(r))
+	fmt.Println("Circle area is ", circleArea(r))
 	n, s := isPrime(21)
 	fmt.Printf("%.f %s\n", n, s)
 	n, s = isPrime(23)
