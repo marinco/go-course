@@ -7,10 +7,12 @@ import (
 
 var IntegerOverflow = errors.New("Integer overflow")
 
-const Fib33 = 3524578
-const Fib44 = 701408733
-const Fib55 = 139583862445
-const Fib66 = 27777890035288
+const (
+	Fib33 = 3524578
+	Fib44 = 701408733
+	Fib55 = 139583862445
+	Fib66 = 27777890035288
+)
 
 func CheckInt32(n int) error {
 	if n > math.MaxInt32 || n < math.MinInt32 {
