@@ -25,5 +25,5 @@ func main() {
 	var m = 6
 	fmt.Println(m, "th fibonacci is", first.FibonacciRecursive(m))
 	fmt.Println(m, "th fibonacci is", first.FibonacciIterative(m))
-
+	fmt.Println(first.CalculateFibonacci(30000000000000))
 }

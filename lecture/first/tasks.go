@@ -1,5 +1,27 @@
 package first
 
+import (
+	"errors"
+	"math"
+)
+
+var IntegerOverflow = errors.New("Integer overflow")
+
+func CheckInt32(n int) error {
+	if n > math.MaxInt32 || n < math.MinInt32 {
+		return IntegerOverflow
+	}
+	return nil
+}
+
+func CalculateFibonacci(n int) (string, int) {
+	var error = CheckInt32(n)
+	if error != nil {
+		return error.Error(), 0
+	}
+	return "Success", FibonacciIterative(n)
+}
+
 func FibonacciRecursive(n int) int {
 	if n <= 1 {
 		return n
@@ -9,7 +31,7 @@ func FibonacciRecursive(n int) int {
 
 func FibonacciIterative(n int) int {
 	if n <= 1 {
-		return 1
+		return n
 	}
 
 	var fib = 1
