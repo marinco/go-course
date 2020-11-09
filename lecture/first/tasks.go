@@ -7,6 +7,11 @@ import (
 
 var IntegerOverflow = errors.New("Integer overflow")
 
+const Fib33 = 3524578
+const Fib44 = 701408733
+const Fib55 = 139583862445
+const Fib66 = 27777890035288
+
 func CheckInt32(n int) error {
 	if n > math.MaxInt32 || n < math.MinInt32 {
 		return IntegerOverflow
@@ -42,4 +47,23 @@ func FibonacciIterative(n int) int {
 		previousFib = tmp
 	}
 	return fib
+}
+
+func FibonacciBinet(n float64) float64 {
+	return (math.Pow((1+math.Sqrt(5))/2, n) - math.Pow((1-math.Sqrt(5))/2, n)) / math.Sqrt(5)
+}
+
+func Lookup(n int) int {
+	switch n {
+	case 33:
+		return Fib33
+	case 44:
+		return Fib44
+	case 55:
+		return Fib55
+	case 66:
+		return Fib66
+	default:
+		return FibonacciRecursive(n)
+	}
 }
