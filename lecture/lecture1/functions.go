@@ -1,4 +1,4 @@
-package first
+package lecture1
 
 import (
 	"fmt"

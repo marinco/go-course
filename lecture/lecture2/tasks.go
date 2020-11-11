@@ -1,4 +1,4 @@
-package second
+package lecture2
 
 func Gcd(b int, c int) []Step {
 	var steps = make([]Step, 0)
