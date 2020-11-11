@@ -1,6 +1,9 @@
 package hw1
 
-import "math"
+import (
+	"errors"
+	"math"
+)
 
 func Counter(numbers []int) map[int]int {
 	var pairs = make(map[int]int)
@@ -10,7 +13,7 @@ func Counter(numbers []int) map[int]int {
 	return pairs
 }
 
-func SretanBroj(matrica [][]int) int {
+func HappyNumber(matrica [][]int) int {
 	for i := 0; i < len(matrica); i++ {
 		var min = math.MaxInt32
 		for j := 0; j < len(matrica[i]); j++ {
@@ -35,4 +38,33 @@ func SretanBroj(matrica [][]int) int {
 		}
 	}
 	return 0
+}
+
+func MostExpensive(shopList []Shopping) (item []Shopping, err error) {
+	// tijelo funkcije
+	// pripaziti: kad se može dogoditi pogreška?
+	if shopList == nil {
+		err = errors.New("No data")
+	}
+
+	for _, element := range shopList {
+		if len(item) == 0 {
+			item = append(item, element)
+			continue
+		}
+		if element.Price == item[0].Price {
+			item = append(item, element)
+		}
+		if element.Price > item[0].Price {
+			item = item[:0]
+			item = append(item, element)
+		}
+	}
+	return item, err
+}
+func TotalCost(shopList []Shopping) (total int) {
+	for _, element := range shopList {
+		total += element.Price * element.Quantity
+	}
+	return total
 }
