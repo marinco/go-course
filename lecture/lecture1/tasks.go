@@ -14,29 +14,29 @@ const (
 	Fib66 = 27777890035288
 )
 
-func CheckInt32(n int) error {
+func checkInt32(n int) error {
 	if n > math.MaxInt32 || n < math.MinInt32 {
 		return IntegerOverflow
 	}
 	return nil
 }
 
-func CalculateFibonacci(n int) (string, int) {
-	var error = CheckInt32(n)
+func calculateFibonacci(n int) (string, int) {
+	var error = checkInt32(n)
 	if error != nil {
 		return error.Error(), 0
 	}
-	return "Success", FibonacciIterative(n)
+	return "Success", fibonacciIterative(n)
 }
 
-func FibonacciRecursive(n int) int {
+func fibonacciRecursive(n int) int {
 	if n <= 1 {
 		return n
 	}
-	return FibonacciRecursive(n-1) + FibonacciRecursive(n-2)
+	return fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
 }
 
-func FibonacciIterative(n int) int {
+func fibonacciIterative(n int) int {
 	if n <= 1 {
 		return n
 	}
@@ -51,11 +51,11 @@ func FibonacciIterative(n int) int {
 	return fib
 }
 
-func FibonacciBinet(n float64) float64 {
+func fibonacciBinet(n float64) float64 {
 	return (math.Pow((1+math.Sqrt(5))/2, n) - math.Pow((1-math.Sqrt(5))/2, n)) / math.Sqrt(5)
 }
 
-func Lookup(n int) int {
+func lookup(n int) int {
 	switch n {
 	case 33:
 		return Fib33
@@ -66,6 +66,6 @@ func Lookup(n int) int {
 	case 66:
 		return Fib66
 	default:
-		return FibonacciRecursive(n)
+		return fibonacciRecursive(n)
 	}
 }

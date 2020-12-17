@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func Counter(numbers []int) map[int]int {
+func counter(numbers []int) map[int]int {
 	var pairs = make(map[int]int)
 	for _, element := range numbers {
 		pairs[element]++
@@ -13,7 +13,7 @@ func Counter(numbers []int) map[int]int {
 	return pairs
 }
 
-func HappyNumber(matrica [][]int) int {
+func happyNumber(matrica [][]int) int {
 	for i := 0; i < len(matrica); i++ {
 		var min = math.MaxInt32
 		for j := 0; j < len(matrica[i]); j++ {
@@ -40,7 +40,7 @@ func HappyNumber(matrica [][]int) int {
 	return 0
 }
 
-func MostExpensive(shopList []Shopping) (item []Shopping, err error) {
+func mostExpensive(shopList []Shopping) (item []Shopping, err error) {
 	// tijelo funkcije
 	// pripaziti: kad se može dogoditi pogreška?
 	if shopList == nil {
@@ -62,7 +62,7 @@ func MostExpensive(shopList []Shopping) (item []Shopping, err error) {
 	}
 	return item, err
 }
-func TotalCost(shopList []Shopping) (total int) {
+func totalCost(shopList []Shopping) (total int) {
 	for _, element := range shopList {
 		total += element.Price * element.Quantity
 	}

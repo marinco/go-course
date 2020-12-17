@@ -1,6 +1,6 @@
 package lecture2
 
-func Gcd(b int, c int) []Step {
+func gcd(b int, c int) []Step {
 	var steps = make([]Step, 0)
 	for c > 0 {
 		var step = Step{A: b / c, B: b, R: b % c}

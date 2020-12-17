@@ -6,11 +6,11 @@ import (
 	"runtime"
 )
 
-func CircleArea(r float64) float64 {
+func circleArea(r float64) float64 {
 	return math.Pow(r, 2) * math.Pi
 }
 
-func IsPrime(n float64) (float64, string) {
+func isPrime(n float64) (float64, string) {
 	var i float64
 	for i = 2; i < math.Floor(math.Sqrt(n)); i++ {
 		if (math.Mod(n, i)) == 0 {
@@ -20,14 +20,14 @@ func IsPrime(n float64) (float64, string) {
 	return 0, "Number is prime"
 }
 
-func Sqrt(x float64) string {
+func sqrt(x float64) string {
 	if x < 0 {
-		return Sqrt(-x) + "i"
+		return sqrt(-x) + "i"
 	}
 	return fmt.Sprint(math.Sqrt(x))
 }
 
-func Pow(x, n, lim float64) float64 {
+func pow(x, n, lim float64) float64 {
 	if v := math.Pow(x, n); v < lim {
 		return v
 	} else {
@@ -37,7 +37,7 @@ func Pow(x, n, lim float64) float64 {
 	return lim
 }
 
-func Os() {
+func os() {
 	switch os := runtime.GOOS; os {
 	case "darwin":
 		fmt.Println("OS X")
@@ -51,7 +51,7 @@ func Os() {
 	}
 }
 
-func ReverseRunes(input string) string {
+func reverseRunes(input string) string {
 	r := []rune(input)
 	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
 		r[i], r[j] = r[j], r[i]
