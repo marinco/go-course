@@ -59,6 +59,21 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(response)
 }
 
+func redirectHandler(w http.ResponseWriter, r *http.Request) {
+	var redirectUrl = r.URL.Query().Get("url")
+
+	if len(redirectUrl) == 0 {
+		errorHandler(w, r, http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	redirectUrl = "http://" + redirectUrl
+	http.Redirect(w, r, redirectUrl, http.StatusMovedPermanently)
+}
+
 func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	w.WriteHeader(status)
 	fmt.Fprintf(w, "custom error: %d \n", status)
